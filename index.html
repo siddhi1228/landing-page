@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>landing page</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+          <ul>
+              <li><a href="">Home</a></li>
+              <li><a href="">About</a></li>
+              <li><a href="">Services</a></li>
+              <li><a href="">Contact us</a></li>
+              <div class="search">
+                  <input type="text" name="search" id="search" placeholder="Search">
+              </div>
+          </ul>
+      </nav>
+  </header>
+    <div class="parallax__container">
+      <img src="gbg-1.webp" alt="parallax"  />
+      <img id="bg-2" src="gbg-1.webp" alt="parallax" />
+      
+      <img id="bg-3" src="gbg-1.webp" alt="parallax"  />
+      <h1 id="title">Arcade</h1>
+    </div>
+    <section class="about">
+      <div class="image__gallary">
+        <div class="image__card" id="image__card-1">
+          <img src="arcade-1.jpg" alt="grid" width="202" height="250"  />
+        </div>
+        <div class="image__card" id="image__card-2">
+          <img src="arcade-3.avif" alt="grid" width="202" height="250" />
+        </div>
+        <div class="image__card" id="image__card-3">
+          <img src="arcade-2.jpg" alt="grid" width="202" height="250" />
+        </div>
+        <div class="image__card" id="image__card-4">
+          <img src="arcade-4.jpeg" alt="grid" width="202" height="250" />
+        </div>
+      </div>
+      <div class="details">
+        Step into the world of excitement and nostalgia with our arcade haven! 
+        Discover a vast collection of classic and modern arcade games that cater 
+        to all ages and tastes. Relive the golden era of gaming with our vintage 
+        machines, or challenge your skills on the latest cutting-edge arcade technology. 
+        Perfect for family fun, friendly competitions, or a trip down memory lane, 
+        our arcade is your ultimate gaming destination.
+      </div>
+      <div class="footer__btn">
+        <button class="learn__more">Learn More</button>
+      </div>
+    </section>
+
+    <script>
+        var title = document.getElementById("title");
+        var bg_2 = document.getElementById("bg-2");
+        var bg_3 = document.getElementById("bg-3");
+  
+        var image_card_1 = document.getElementById("image__card-1");
+        var image_card_2 = document.getElementById("image__card-2");
+        var image_card_3 = document.getElementById("image__card-3");
+        var image_card_4 = document.getElementById("image__card-4");
+  
+        document.addEventListener("scroll", (event) => {
+          var positionY = window.scrollY;
+  
+          title.style.fontSize = `${100 + positionY * 0.5}px`;
+  
+          bg_2.style.top = `-${positionY * 0.5}px`;
+          bg_3.style.top = `-${positionY}px`;
+          bg_3.style.scale = 1 + positionY * 0.001;
+  
+          image_card_1.style.transform = `translateY(${
+            positionY * -0.5 + 400
+          }px)`;
+  
+          image_card_2.style.transform = `translateY(${positionY * 0.1 + -50}px)`;
+  
+          image_card_3.style.transform = `translateY(${
+            positionY * -0.1 + 100
+          }px)`;
+  
+          image_card_4.style.transform = `translateY(${
+            positionY * 0.2 + -125
+          }px)`;
+  
+          var _newOpacity = positionY * 0.001;
+          if (_newOpacity >= 0 && _newOpacity <= 1) {
+            image_card_1.style.opacity = _newOpacity;
+            image_card_2.style.opacity = _newOpacity;
+            image_card_3.style.opacity = _newOpacity;
+            image_card_4.style.opacity = _newOpacity;
+          }
+        });
+      </script>
+  </body>
+</html>
